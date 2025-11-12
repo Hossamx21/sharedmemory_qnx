@@ -2,42 +2,45 @@
 #include "publisher.hpp"
 #include "subscriber.hpp"
 #include <iostream>
+#include <string>
 #include <thread>
 #include <chrono>
-#include <cstring>
 
 int main() {
-    const char* shmName = "/my_shm";
-    const size_t shmSize = 1024;       // 1 KB shared memory
-    const size_t chunkSize = 128;      // 128 bytes per chunk
+    const std::string shmName = "/demo_shm";
+    const std::size_t chunkSize = 256;
+    const std::size_t totalSize = chunkSize * 8; // 8 chunks
 
-    // Create shared memory region
-    ShmRegion region(shmName, shmSize);
+    // Create region
+    ShmRegion region(shmName, totalSize);
 
-    // Create publisher and subscriber
     Publisher pub(region, chunkSize);
     Subscriber sub(region, chunkSize);
 
-    // Data to publish
-    const char message[] = "Hello from publisher!";
-
     // Publisher thread
-    std::thread publisherThread([&]() {
-        std::cout << "Publishing message..." << std::endl;
-        pub.publish(message, sizeof(message));
+    std::thread pubThread([&]() {
+        for (int i = 0; i < 5; ++i) {
+            std::string msg = "message " + std::to_string(i);
+            pub.publishBlocking(msg.data(), msg.size() + 1);
+            std::cout << "[PUB] published: " << msg << '\n';
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        }
     });
-
-    // Give some time for publisher to write
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     // Subscriber thread
-    std::thread subscriberThread([&]() {
-        void* chunk = region.get(); // For demo, just get base
-        std::cout << "Subscriber read: " << static_cast<char*>(chunk) << std::endl;
+    std::thread subThread([&]() {
+        for (int i = 0; i < 5; ++i) {
+            void* ptr = sub.receiveBlocking();
+            if (ptr) {
+                std::cout << "[SUB] received: " << static_cast<char*>(ptr) << '\n';
+                sub.release(ptr);
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        }
     });
 
-    publisherThread.join();
-    subscriberThread.join();
+    pubThread.join();
+    subThread.join();
 
     return 0;
 }
