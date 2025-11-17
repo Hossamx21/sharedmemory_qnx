@@ -1,4 +1,3 @@
-// shm_region.hpp
 #pragma once
 #include <string>
 #include <cstddef>
@@ -11,15 +10,24 @@
 
 class ShmRegion {
 public:
-    ShmRegion(const std::string& name, std::size_t size);
+    enum class Mode {
+        Create,
+        Attach
+    };
+
+    ShmRegion(const std::string& name, std::size_t size, Mode mode);
     ~ShmRegion();
 
-    void* get() noexcept { return addr_; }
+    void* getBase() noexcept { return addr_; }
     std::size_t getSize() const noexcept { return size_; }
+
+    bool isCreator() const noexcept { return creator_; }
 
 private:
     std::string name_;
-    std::size_t size_{};
-    int fd_{-1};
-    void* addr_{nullptr};
+    std::size_t size_;
+    bool creator_ = false;
+
+    int fd_ = -1;
+    void* addr_ = nullptr;
 };
