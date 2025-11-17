@@ -6,6 +6,7 @@
 class ChunkQueue {
 public:
     explicit ChunkQueue(std::size_t capacity);
+    ~ChunkQueue();
 
     bool push(std::size_t index);
     bool pop(std::size_t& outIndex);

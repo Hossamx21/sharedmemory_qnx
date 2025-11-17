@@ -1,20 +1,29 @@
 #pragma once
+
 #include "shm_chunk_allocator.hpp"
-#include <cstddef>
+#include "chunk_queue.hpp"
+#include "notifier.hpp"
 
 class Subscriber {
 public:
-    Subscriber(ShmRegion& region, std::size_t chunkSize);
+    Subscriber(ShmChunkAllocator& allocator,
+               ChunkQueue& queue,
+               Notifier& notifier)
+        : allocator_(allocator),
+          queue_(queue),
+          notifier_(notifier)
+    {}
 
-    // Blocking receive: waits for next available chunk with data, retains it and returns pointer.
-    // Caller must call release(ptr) when done.
+    // blocks until a message arrives
     void* receiveBlocking();
 
-    // Non-blocking: scan and return first available data chunk or nullptr.
-    void* receiveNonBlocking();
+    // non-blocking version
+    void* tryReceive();
 
     void release(void* ptr);
 
 private:
-    ShmChunkAllocator allocator_;
+    ShmChunkAllocator& allocator_;
+    ChunkQueue& queue_;
+    Notifier& notifier_;
 };

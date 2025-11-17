@@ -1,16 +1,24 @@
 #pragma once
+
 #include "shm_chunk_allocator.hpp"
+#include "chunk_queue.hpp"
+#include "notifier.hpp"
 #include <cstddef>
 
 class Publisher {
 public:
-    Publisher(ShmRegion& region, std::size_t chunkSize);
-    // Blocking publish: wait for a free chunk, write data, notify subscribers.
-    void publishBlocking(const void* data, std::size_t len);
+    Publisher(ShmChunkAllocator& allocator,
+              ChunkQueue& queue,
+              Notifier& notifier)
+        : allocator_(allocator),
+          queue_(queue),
+          notifier_(notifier)
+    {}
 
-    // Non-blocking publish: returns false if no chunk available.
-    bool publishNonBlocking(const void* data, std::size_t len);
+    void publish(const void* data, std::size_t len);
 
 private:
-    ShmChunkAllocator allocator_;
+    ShmChunkAllocator& allocator_;
+    ChunkQueue& queue_;
+    Notifier& notifier_;
 };

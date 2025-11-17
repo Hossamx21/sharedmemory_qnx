@@ -6,12 +6,16 @@ ChunkQueue::ChunkQueue(std::size_t capacity)
     buffer_ = new std::size_t[capacity_];
 }
 
+ChunkQueue::~ChunkQueue() {
+    delete[] buffer_;
+}
+
 bool ChunkQueue::push(std::size_t index) {
     auto t = tail_.load(std::memory_order_relaxed);
     auto next = (t + 1) % capacity_;
 
     if (next == head_.load(std::memory_order_acquire))
-        return false; // full
+        return false; // queue full
 
     buffer_[t] = index;
     tail_.store(next, std::memory_order_release);
