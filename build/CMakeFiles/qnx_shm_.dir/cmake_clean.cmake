@@ -5,7 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj.d"
   "CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj"
   "CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj.d"
-  "lib/qnx_shm_.lib"
+  "lib/qnx_shm_.a"
   "lib/qnx_shm_.pdb"
 )
 

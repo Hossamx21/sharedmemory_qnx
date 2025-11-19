@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "C:/Users/Garraio/qnx800/host/win64/x86_64/usr/bin/q++.exe")
+set(CMAKE_CXX_COMPILER "C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "QCC")
 set(CMAKE_CXX_COMPILER_VERSION "12.2.0")
@@ -25,9 +25,9 @@ set(CMAKE_CXX_COMPILER_ARCHITECTURE_ID "")
 
 
 
-set(CMAKE_AR "CMAKE_AR-NOTFOUND")
+set(CMAKE_AR "C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ar.exe")
 set(CMAKE_CXX_COMPILER_AR "")
-set(CMAKE_RANLIB ":")
+set(CMAKE_RANLIB "C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ranlib.exe")
 set(CMAKE_CXX_COMPILER_RANLIB "")
 set(CMAKE_LINKER "CMAKE_LINKER-NOTFOUND")
 set(CMAKE_LINKER_LINK "")

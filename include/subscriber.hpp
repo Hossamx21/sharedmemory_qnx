@@ -2,19 +2,21 @@
 
 #include "shm_chunk_allocator.hpp"
 #include "chunk_queue.hpp"
-#include "notifier.hpp"
+#include "pulse_notifier.hpp"
 
 class Subscriber {
 public:
     Subscriber(ShmChunkAllocator& allocator,
                ChunkQueue& queue,
-               Notifier& notifier)
+               PulseNotifier& notifier,
+               RegionHeader* hdr)
         : allocator_(allocator),
           queue_(queue),
-          notifier_(notifier)
+          notifier_(notifier),
+          hdr_(hdr)
     {}
 
-    // blocks until a message arrives
+    // subscriber waits for pulse
     void* receiveBlocking();
 
     // non-blocking version
@@ -25,5 +27,6 @@ public:
 private:
     ShmChunkAllocator& allocator_;
     ChunkQueue& queue_;
-    Notifier& notifier_;
+    PulseNotifier& notifier_;
+    RegionHeader* hdr_;
 };

@@ -27,6 +27,8 @@ public:
 
     std::size_t indexFromPtr(void* ptr) const noexcept;
 
+    void* ptrFromIndex(std::size_t idx) const noexcept;
+
     
 
 private:

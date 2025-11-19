@@ -1,6 +1,6 @@
 #pragma once
-#include <cstddef>
 #include <atomic>
+#include <cstddef>
 #include <cstdint>
 
 class ChunkQueue {
@@ -18,5 +18,5 @@ private:
     std::size_t capacity_;
     std::atomic_size_t head_{0};
     std::atomic_size_t tail_{0};
-    std::size_t* buffer_;  //in shared memory later
+    std::size_t* buffer_;
 };

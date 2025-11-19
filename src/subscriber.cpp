@@ -1,22 +1,21 @@
 #include "subscriber.hpp"
 
 void* Subscriber::receiveBlocking() {
-    notifier_.wait();  // block until publisher notifies
+    notifier_.createReceiver(hdr_);  // writes pid/chid to shared memory
+
+    notifier_.wait(); // block until publisher sends pulse
 
     std::size_t idx;
-    bool ok = queue_.pop(idx);
-    if (!ok)
-        return nullptr;  // rare race: notified but no data
+    if (!queue_.pop(idx))
+        return nullptr;
 
     return allocator_.ptrFromIndex(idx);
 }
 
 void* Subscriber::tryReceive() {
     std::size_t idx;
-    bool ok = queue_.pop(idx);
-    if (!ok)
+    if (!queue_.pop(idx))
         return nullptr;
-
     return allocator_.ptrFromIndex(idx);
 }
 

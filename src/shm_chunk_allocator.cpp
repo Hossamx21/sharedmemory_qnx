@@ -74,3 +74,8 @@ std::size_t ShmChunkAllocator::indexFromPtr(void* ptr) const noexcept {
     return diff / chunkSize_;
 }
 
+void* ShmChunkAllocator::ptrFromIndex(std::size_t idx) const noexcept {
+    return payloadBase_ + idx * chunkSize_;
+}
+
+
