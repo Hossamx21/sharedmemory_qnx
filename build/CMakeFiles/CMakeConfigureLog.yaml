@@ -4,15 +4,16 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt:15 (project)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:3 (project)"
     message: |
-      The system is: Windows - 10.0.26200 - AMD64
+      The target system is: QNX - 8.0 - x86_64
+      The host system is: Windows - 10.0.26200 - AMD64
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_MAKE_PROGRAM"
     description: "Path to a program."
@@ -162,12 +163,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:71 (_cmake_find_compiler_path)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER_WITH_PATH"
     description: "Path to a program."
@@ -240,6 +242,7 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
@@ -248,7 +251,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -295,17 +298,18 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe 
-      Build flags: 
+      Build flags: -Vgcc_ntox86_64
       Id flags:  
       
       The output was:
@@ -322,7 +326,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_STRIP"
     description: "Path to a program."
@@ -469,12 +473,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -621,12 +626,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_NM"
     description: "Path to a program."
@@ -773,12 +779,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_OBJDUMP"
     description: "Path to a program."
@@ -925,12 +932,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_OBJCOPY"
     description: "Path to a program."
@@ -1077,12 +1085,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_READELF"
     description: "Path to a program."
@@ -1229,12 +1238,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_DLLTOOL"
     description: "Path to a program."
@@ -1381,12 +1391,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_ADDR2LINE"
     description: "Path to a program."
@@ -1533,12 +1544,13 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "find-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     mode: "program"
     variable: "CMAKE_TAPI"
     description: "Path to a program."
@@ -1685,19 +1697,20 @@ events:
         - "C:\\Users\\Garraio\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\Garraio\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\Garraio\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/Garraio/qnx8sdp/target/qnx"
   -
     kind: "try_compile-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-bqsk0v"
-      binary: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-bqsk0v"
+      source: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-ldial5"
+      binary: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-ldial5"
     cmakeVariables:
-      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS: "-Vgcc_ntox86_64"
       CMAKE_CXX_FLAGS_DEBUG: "-g -g"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -1705,39 +1718,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-bqsk0v'
+        Change Dir: 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-ldial5'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe -f Makefile cmTC_15606/fast
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe  -f CMakeFiles/cmTC_15606.dir/build.make CMakeFiles/cmTC_15606.dir/build
-        make[1]: Entering directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-bqsk0v'
-        Building CXX object CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++   -v -Wp,-MD,CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj.d -Wp,-MT,CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj -Wp,-MF,CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe -f Makefile cmTC_b4f80/fast
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe  -f CMakeFiles/cmTC_b4f80.dir/build.make CMakeFiles/cmTC_b4f80.dir/build
+        make[1]: Entering directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-ldial5'
+        Building CXX object CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++   -Vgcc_ntox86_64  -g -g   -v -Wp,-MD,CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o.d -Wp,-MT,CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o -Wp,-MF,CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o -c "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp"
         cc1plus: fatal error: "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp": Invalid argument
         compilation terminated.
-        cc: looking for gcc_ntox86_64 in C:/Users/Garraio/qnx8sdp/host/win64/x86_64/etc/qcc/gcc/12.2.0/gcc_ntox86_64++.conf
-        cc: looking for gcc_ntox86_64 in C:/Users/Garraio/qnx8sdp/host/win64/x86_64/etc/qcc/gcc/12.2.0/gcc_ntox86_64.conf
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/cc1plus -quiet -fstack-protector-strong -nostdinc -nostdinc++ -std=gnu++17 -D__QNX__=800 -D__QNXNTO__ -D__GNUC__=12 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=0 -D__NO_INLINE__ -D__DEPRECATED -D__unix__ -D__unix -D__ELF__ -fPIE -D__X86_64__ -D__LITTLEENDIAN__ -Asystem(unix) -iplugindir=C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/plugin -MD CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj.d -MT CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj.d -isystem C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1 -isystem C:/Users/Garraio/qnx8sdp/target/qnx/usr/include -isystem C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/include C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -dumpbase C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -o C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qccw4Yh6e\\CMakeCXXCompilerABI.s
+        cc: looking for gcc_ntox86_64+debug in C:/Users/Garraio/qnx8sdp/host/win64/x86_64/etc/qcc/gcc/12.2.0/gcc_ntox86_64++.conf
+        cc: looking for gcc_ntox86_64+debug in C:/Users/Garraio/qnx8sdp/host/win64/x86_64/etc/qcc/gcc/12.2.0/gcc_ntox86_64.conf
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/cc1plus -g2 -g2 -quiet -fstack-protector-strong -nostdinc -nostdinc++ -std=gnu++17 -D__QNX__=800 -D__QNXNTO__ -D__GNUC__=12 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=0 -D__NO_INLINE__ -D__DEPRECATED -D__unix__ -D__unix -D__ELF__ -fPIE -D__X86_64__ -D__LITTLEENDIAN__ -Asystem(unix) -iplugindir=C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/plugin -MD CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o.d -isystem C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1 -isystem C:/Users/Garraio/qnx8sdp/target/qnx/usr/include -isystem C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/include C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -dumpbase C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -o C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qcc3t2qVt\\CMakeCXXCompilerABI.s
         cc: C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/cc1plus caught signal 1
-        cc: unlinking CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj
-        cc: unlinking C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qccw4Yh6e\\CMakeCXXCompilerABI.s
-        cc: removing  C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qccw4Yh6e
-        make[1]: *** [CMakeFiles/cmTC_15606.dir/build.make:82: CMakeFiles/cmTC_15606.dir/CMakeCXXCompilerABI.cpp.obj] Error 1
-        make[1]: Leaving directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-bqsk0v'
-        make: *** [Makefile:134: cmTC_15606/fast] Error 2
+        cc: unlinking CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o
+        cc: unlinking C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qcc3t2qVt\\CMakeCXXCompilerABI.s
+        cc: removing  C:\\Users\\Garraio\\AppData\\Local\\Temp\\2qcc3t2qVt
+        make[1]: *** [CMakeFiles/cmTC_b4f80.dir/build.make:82: CMakeFiles/cmTC_b4f80.dir/CMakeCXXCompilerABI.cpp.o] Error 1
+        make[1]: Leaving directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-ldial5'
+        make: *** [Makefile:134: cmTC_b4f80/fast] Error 2
         
       exitCode: 2
   -
     kind: "try_compile-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:56 (try_compile)"
-      - "CMakeLists.txt:15 (project)"
+      - "CMakeLists.txt:3 (project)"
     checks:
       - "Check for working CXX compiler: C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe"
     directories:
-      source: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn"
-      binary: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn"
+      source: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc"
+      binary: "D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc"
     cmakeVariables:
-      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS: "-Vgcc_ntox86_64"
       CMAKE_CXX_FLAGS_DEBUG: "-g -g"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -1745,16 +1758,16 @@ events:
       variable: "CMAKE_CXX_COMPILER_WORKS"
       cached: true
       stdout: |
-        Change Dir: 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn'
+        Change Dir: 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe -f Makefile cmTC_8d1cd/fast
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe  -f CMakeFiles/cmTC_8d1cd.dir/build.make CMakeFiles/cmTC_8d1cd.dir/build
-        make[1]: Entering directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn'
-        Building CXX object CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++    -Wp,-MD,CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj.d -Wp,-MT,CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj -Wp,-MF,CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj.d -o CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj -c D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn/testCXXCompiler.cxx
-        Linking CXX executable cmTC_8d1cd.exe
-        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe  "CMakeFiles/cmTC_8d1cd.dir/testCXXCompiler.cxx.obj"  -o cmTC_8d1cd.exe
-        make[1]: Leaving directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-97tzzn'
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe -f Makefile cmTC_0804f/fast
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/make.exe  -f CMakeFiles/cmTC_0804f.dir/build.make CMakeFiles/cmTC_0804f.dir/build
+        make[1]: Entering directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc'
+        Building CXX object CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++   -Vgcc_ntox86_64  -g -g -Wp,-MD,CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o.d -Wp,-MT,CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o -Wp,-MF,CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o.d -o CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o -c D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc/testCXXCompiler.cxx
+        Linking CXX executable cmTC_0804f
+        C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe  -Vgcc_ntox86_64  -g -g "CMakeFiles/cmTC_0804f.dir/testCXXCompiler.cxx.o"  -o cmTC_0804f
+        make[1]: Leaving directory 'D:/QNX/qnx_shm_/build/CMakeFiles/CMakeScratch/TryCompile-gih4uc'
         
       exitCode: 0
 ...

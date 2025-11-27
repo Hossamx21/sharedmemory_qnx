@@ -1,2 +1,2 @@
-C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ar qc lib/qnx_shm_.a CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj
-C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ranlib lib/qnx_shm_.a
+C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ar.exe qc lib/libqnx_shm_.a CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o
+C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/ntox86_64-ranlib.exe lib/libqnx_shm_.a

@@ -82,15 +82,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeInspectCXXLinker.cmake"
   "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/FeatureTesting.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-CXX.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Determine-CXX.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake"
-  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/GNU-Initialize.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/GNU.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/QNX-Initialize.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/QNX.cmake"
+  "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/UnixPaths.cmake"
   "D:/QNX/qnx_shm_/CMakeLists.txt"
+  "D:/QNX/qnx_shm_/QNX_8_0_x86_64.cmake"
   "CMakeFiles/4.2.0-rc2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.2.0-rc2/CMakeSystem.cmake"
   )
@@ -113,4 +111,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/qnx_shm_.dir/DependInfo.cmake"
+  "CMakeFiles/shm_sender.dir/DependInfo.cmake"
+  "CMakeFiles/shm_receiver.dir/DependInfo.cmake"
   )

@@ -2,8 +2,12 @@
 #include <atomic>
 #include <cstdint>
 
-struct alignas(uint64_t) ChunkHeader {
+struct alignas(8) ChunkHeader {
     std::atomic<uint32_t> refCount;
     std::atomic<uint8_t>  inUse;
-    uint8_t pad[64 - sizeof(std::atomic<uint32_t>) - sizeof(std::atomic<uint8_t>)];
+    // Padding to ensure 64-byte alignment/size if needed, 
+    // or just let the compiler handle natural alignment.
+    // For this specific allocator logic, explicit padding isn't strictly fatal 
+    // unless you rely on exact math, but let's keep it simple:
+    uint8_t pad[3]; 
 };

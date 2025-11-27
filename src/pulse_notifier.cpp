@@ -1,11 +1,5 @@
 #include "pulse_notifier.hpp"
 
-#include <sys/neutrino.h>
-#include <sys/netmgr.h>
-#include <sys/dispatch.h>
-#include <unistd.h>
-#include <errno.h>
-
 static constexpr int PULSE_CODE_DATA = 1;
 
 PulseNotifier::PulseNotifier() = default;

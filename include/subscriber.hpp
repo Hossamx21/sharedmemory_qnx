@@ -1,8 +1,8 @@
 #pragma once
-
 #include "shm_chunk_allocator.hpp"
 #include "chunk_queue.hpp"
 #include "pulse_notifier.hpp"
+#include "region_header.hpp"
 
 class Subscriber {
 public:
@@ -16,10 +16,10 @@ public:
           hdr_(hdr)
     {}
 
-    // subscriber waits for pulse
+    // Subscriber waits for pulse
     void* receiveBlocking();
 
-    // non-blocking version
+    // Non-blocking version
     void* tryReceive();
 
     void release(void* ptr);

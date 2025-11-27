@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "lib/qnx_shm_.a"
+  "lib/libqnx_shm_.a"
 )

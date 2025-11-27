@@ -14,7 +14,7 @@
 
 class ShmChunkAllocator {
 public:
-    ShmChunkAllocator(ShmRegion& region, std::size_t chunkSize);
+    ShmChunkAllocator(ShmRegion& region, std::size_t chunkSize, std::size_t startOffset);
 
     // Non-blocking: returns nullptr if no free chunk.
     void* allocate() noexcept;

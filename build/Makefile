@@ -129,13 +129,63 @@ qnx_shm_/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/build
 .PHONY : qnx_shm_/fast
 
-src/publisher.obj: src/publisher.cpp.obj
-.PHONY : src/publisher.obj
+#=============================================================================
+# Target rules for targets named shm_sender
+
+# Build rule for target.
+shm_sender: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shm_sender
+.PHONY : shm_sender
+
+# fast build rule for target.
+shm_sender/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_sender.dir/build.make CMakeFiles/shm_sender.dir/build
+.PHONY : shm_sender/fast
+
+#=============================================================================
+# Target rules for targets named shm_receiver
+
+# Build rule for target.
+shm_receiver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shm_receiver
+.PHONY : shm_receiver
+
+# fast build rule for target.
+shm_receiver/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/build
+.PHONY : shm_receiver/fast
+
+src/chunk_queue.o: src/chunk_queue.cpp.o
+.PHONY : src/chunk_queue.o
 
 # target to build an object file
-src/publisher.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj
-.PHONY : src/publisher.cpp.obj
+src/chunk_queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o
+.PHONY : src/chunk_queue.cpp.o
+
+src/chunk_queue.i: src/chunk_queue.cpp.i
+.PHONY : src/chunk_queue.i
+
+# target to preprocess a source file
+src/chunk_queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.i
+.PHONY : src/chunk_queue.cpp.i
+
+src/chunk_queue.s: src/chunk_queue.cpp.s
+.PHONY : src/chunk_queue.s
+
+# target to generate assembly for a file
+src/chunk_queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.s
+.PHONY : src/chunk_queue.cpp.s
+
+src/publisher.o: src/publisher.cpp.o
+.PHONY : src/publisher.o
+
+# target to build an object file
+src/publisher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o
+.PHONY : src/publisher.cpp.o
 
 src/publisher.i: src/publisher.cpp.i
 .PHONY : src/publisher.i
@@ -153,13 +203,109 @@ src/publisher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/publisher.cpp.s
 .PHONY : src/publisher.cpp.s
 
-src/shm_region.obj: src/shm_region.cpp.obj
-.PHONY : src/shm_region.obj
+src/pulse_notifier.o: src/pulse_notifier.cpp.o
+.PHONY : src/pulse_notifier.o
 
 # target to build an object file
-src/shm_region.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj
-.PHONY : src/shm_region.cpp.obj
+src/pulse_notifier.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o
+.PHONY : src/pulse_notifier.cpp.o
+
+src/pulse_notifier.i: src/pulse_notifier.cpp.i
+.PHONY : src/pulse_notifier.i
+
+# target to preprocess a source file
+src/pulse_notifier.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.i
+.PHONY : src/pulse_notifier.cpp.i
+
+src/pulse_notifier.s: src/pulse_notifier.cpp.s
+.PHONY : src/pulse_notifier.s
+
+# target to generate assembly for a file
+src/pulse_notifier.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.s
+.PHONY : src/pulse_notifier.cpp.s
+
+src/receiver.o: src/receiver.cpp.o
+.PHONY : src/receiver.o
+
+# target to build an object file
+src/receiver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/src/receiver.cpp.o
+.PHONY : src/receiver.cpp.o
+
+src/receiver.i: src/receiver.cpp.i
+.PHONY : src/receiver.i
+
+# target to preprocess a source file
+src/receiver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/src/receiver.cpp.i
+.PHONY : src/receiver.cpp.i
+
+src/receiver.s: src/receiver.cpp.s
+.PHONY : src/receiver.s
+
+# target to generate assembly for a file
+src/receiver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/src/receiver.cpp.s
+.PHONY : src/receiver.cpp.s
+
+src/sender.o: src/sender.cpp.o
+.PHONY : src/sender.o
+
+# target to build an object file
+src/sender.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_sender.dir/build.make CMakeFiles/shm_sender.dir/src/sender.cpp.o
+.PHONY : src/sender.cpp.o
+
+src/sender.i: src/sender.cpp.i
+.PHONY : src/sender.i
+
+# target to preprocess a source file
+src/sender.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_sender.dir/build.make CMakeFiles/shm_sender.dir/src/sender.cpp.i
+.PHONY : src/sender.cpp.i
+
+src/sender.s: src/sender.cpp.s
+.PHONY : src/sender.s
+
+# target to generate assembly for a file
+src/sender.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_sender.dir/build.make CMakeFiles/shm_sender.dir/src/sender.cpp.s
+.PHONY : src/sender.cpp.s
+
+src/shm_chunk_allocator.o: src/shm_chunk_allocator.cpp.o
+.PHONY : src/shm_chunk_allocator.o
+
+# target to build an object file
+src/shm_chunk_allocator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o
+.PHONY : src/shm_chunk_allocator.cpp.o
+
+src/shm_chunk_allocator.i: src/shm_chunk_allocator.cpp.i
+.PHONY : src/shm_chunk_allocator.i
+
+# target to preprocess a source file
+src/shm_chunk_allocator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.i
+.PHONY : src/shm_chunk_allocator.cpp.i
+
+src/shm_chunk_allocator.s: src/shm_chunk_allocator.cpp.s
+.PHONY : src/shm_chunk_allocator.s
+
+# target to generate assembly for a file
+src/shm_chunk_allocator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.s
+.PHONY : src/shm_chunk_allocator.cpp.s
+
+src/shm_region.o: src/shm_region.cpp.o
+.PHONY : src/shm_region.o
+
+# target to build an object file
+src/shm_region.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o
+.PHONY : src/shm_region.cpp.o
 
 src/shm_region.i: src/shm_region.cpp.i
 .PHONY : src/shm_region.i
@@ -177,13 +323,13 @@ src/shm_region.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.s
 .PHONY : src/shm_region.cpp.s
 
-src/subscriber.obj: src/subscriber.cpp.obj
-.PHONY : src/subscriber.obj
+src/subscriber.o: src/subscriber.cpp.o
+.PHONY : src/subscriber.o
 
 # target to build an object file
-src/subscriber.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj
-.PHONY : src/subscriber.cpp.obj
+src/subscriber.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qnx_shm_.dir/build.make CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o
+.PHONY : src/subscriber.cpp.o
 
 src/subscriber.i: src/subscriber.cpp.i
 .PHONY : src/subscriber.i
@@ -210,13 +356,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... qnx_shm_"
-	@echo "... src/publisher.obj"
+	@echo "... shm_receiver"
+	@echo "... shm_sender"
+	@echo "... src/chunk_queue.o"
+	@echo "... src/chunk_queue.i"
+	@echo "... src/chunk_queue.s"
+	@echo "... src/publisher.o"
 	@echo "... src/publisher.i"
 	@echo "... src/publisher.s"
-	@echo "... src/shm_region.obj"
+	@echo "... src/pulse_notifier.o"
+	@echo "... src/pulse_notifier.i"
+	@echo "... src/pulse_notifier.s"
+	@echo "... src/receiver.o"
+	@echo "... src/receiver.i"
+	@echo "... src/receiver.s"
+	@echo "... src/sender.o"
+	@echo "... src/sender.i"
+	@echo "... src/sender.s"
+	@echo "... src/shm_chunk_allocator.o"
+	@echo "... src/shm_chunk_allocator.i"
+	@echo "... src/shm_chunk_allocator.s"
+	@echo "... src/shm_region.o"
 	@echo "... src/shm_region.i"
 	@echo "... src/shm_region.s"
-	@echo "... src/subscriber.obj"
+	@echo "... src/subscriber.o"
 	@echo "... src/subscriber.i"
 	@echo "... src/subscriber.s"
 .PHONY : help

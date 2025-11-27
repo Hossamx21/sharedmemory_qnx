@@ -72,68 +72,116 @@ include CMakeFiles/qnx_shm_.dir/flags.make
 CMakeFiles/qnx_shm_.dir/codegen:
 .PHONY : CMakeFiles/qnx_shm_.dir/codegen
 
-CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj: CMakeFiles/qnx_shm_.dir/flags.make
-CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj: D:/QNX/qnx_shm_/src/shm_region.cpp
-CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj.d -o CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj -c D:/QNX/qnx_shm_/src/shm_region.cpp
+CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o: D:/QNX/qnx_shm_/src/shm_region.cpp
+CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o -c D:/QNX/qnx_shm_/src/shm_region.cpp
 
 CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.i"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/shm_region.cpp > CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.i
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/shm_region.cpp > CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.i
 
 CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.s"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/shm_region.cpp -o CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.s
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/shm_region.cpp -o CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.s
 
-CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj: CMakeFiles/qnx_shm_.dir/flags.make
-CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj: D:/QNX/qnx_shm_/src/publisher.cpp
-CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj.d -o CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj -c D:/QNX/qnx_shm_/src/publisher.cpp
+CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o: D:/QNX/qnx_shm_/src/publisher.cpp
+CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o -c D:/QNX/qnx_shm_/src/publisher.cpp
 
 CMakeFiles/qnx_shm_.dir/src/publisher.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/publisher.cpp.i"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/publisher.cpp > CMakeFiles/qnx_shm_.dir/src/publisher.cpp.i
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/publisher.cpp > CMakeFiles/qnx_shm_.dir/src/publisher.cpp.i
 
 CMakeFiles/qnx_shm_.dir/src/publisher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/publisher.cpp.s"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/publisher.cpp -o CMakeFiles/qnx_shm_.dir/src/publisher.cpp.s
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/publisher.cpp -o CMakeFiles/qnx_shm_.dir/src/publisher.cpp.s
 
-CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj: CMakeFiles/qnx_shm_.dir/flags.make
-CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj: D:/QNX/qnx_shm_/src/subscriber.cpp
-CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj.d -o CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj -c D:/QNX/qnx_shm_/src/subscriber.cpp
+CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o: D:/QNX/qnx_shm_/src/subscriber.cpp
+CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o -c D:/QNX/qnx_shm_/src/subscriber.cpp
 
 CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.i"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/subscriber.cpp > CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.i
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/subscriber.cpp > CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.i
 
 CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.s"
-	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -Wc,-isysroot,C:/Users/Garraio/qnx8sdp/target/qnx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/subscriber.cpp -o CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.s
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/subscriber.cpp -o CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.s
+
+CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o: D:/QNX/qnx_shm_/src/shm_chunk_allocator.cpp
+CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o -c D:/QNX/qnx_shm_/src/shm_chunk_allocator.cpp
+
+CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.i"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/shm_chunk_allocator.cpp > CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.i
+
+CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.s"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/shm_chunk_allocator.cpp -o CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.s
+
+CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o: D:/QNX/qnx_shm_/src/chunk_queue.cpp
+CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o -c D:/QNX/qnx_shm_/src/chunk_queue.cpp
+
+CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.i"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/chunk_queue.cpp > CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.i
+
+CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.s"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/chunk_queue.cpp -o CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.s
+
+CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o: CMakeFiles/qnx_shm_.dir/flags.make
+CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o: D:/QNX/qnx_shm_/src/pulse_notifier.cpp
+CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o: CMakeFiles/qnx_shm_.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe -x c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Wp,-MD,CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o.d -Wp,-MT,CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o -Wp,-MF,CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o.d -o CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o -c D:/QNX/qnx_shm_/src/pulse_notifier.cpp
+
+CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.i"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/QNX/qnx_shm_/src/pulse_notifier.cpp > CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.i
+
+CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.s"
+	C:/Users/Garraio/qnx8sdp/host/win64/x86_64/usr/bin/q++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/QNX/qnx_shm_/src/pulse_notifier.cpp -o CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.s
 
 # Object files for target qnx_shm_
 qnx_shm__OBJECTS = \
-"CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj" \
-"CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj" \
-"CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj"
+"CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o" \
+"CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o" \
+"CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o" \
+"CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o" \
+"CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o" \
+"CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o"
 
 # External object files for target qnx_shm_
 qnx_shm__EXTERNAL_OBJECTS =
 
-lib/qnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.obj
-lib/qnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/publisher.cpp.obj
-lib/qnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.obj
-lib/qnx_shm_.a: CMakeFiles/qnx_shm_.dir/build.make
-lib/qnx_shm_.a: CMakeFiles/qnx_shm_.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library lib/qnx_shm_.a"
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/shm_region.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/publisher.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/subscriber.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/shm_chunk_allocator.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/chunk_queue.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/src/pulse_notifier.cpp.o
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/build.make
+lib/libqnx_shm_.a: CMakeFiles/qnx_shm_.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:/QNX/qnx_shm_/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library lib/libqnx_shm_.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/qnx_shm_.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qnx_shm_.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/qnx_shm_.dir/build: lib/qnx_shm_.a
+CMakeFiles/qnx_shm_.dir/build: lib/libqnx_shm_.a
 .PHONY : CMakeFiles/qnx_shm_.dir/build
 
 CMakeFiles/qnx_shm_.dir/clean:

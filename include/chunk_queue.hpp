@@ -1,22 +1,20 @@
 #pragma once
-#include <atomic>
+#include "shm_layout.hpp" 
 #include <cstddef>
-#include <cstdint>
 
 class ChunkQueue {
 public:
-    explicit ChunkQueue(std::size_t capacity);
-    ~ChunkQueue();
+    // This constructor matches your .cpp file now
+    ChunkQueue(QueueControlBlock* cb, std::size_t* buffer, std::size_t capacity);
+    ~ChunkQueue() = default;
 
     bool push(std::size_t index);
     bool pop(std::size_t& outIndex);
 
-    bool empty() const noexcept;
-    bool full() const noexcept;
-
 private:
     std::size_t capacity_;
-    std::atomic_size_t head_{0};
-    std::atomic_size_t tail_{0};
-    std::size_t* buffer_;
+    
+    // These pointers reference the Shared Memory (via ShmLayout)
+    QueueControlBlock* cb_; 
+    std::size_t* buffer_;   
 };

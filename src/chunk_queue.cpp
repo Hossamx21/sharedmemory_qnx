@@ -1,42 +1,30 @@
 #include "chunk_queue.hpp"
+#include "shm_layout.hpp" 
 
-ChunkQueue::ChunkQueue(std::size_t capacity)
-    : capacity_(capacity)
+ChunkQueue::ChunkQueue(QueueControlBlock* cb, std::size_t* buffer, std::size_t capacity)
+    : capacity_(capacity), cb_(cb), buffer_(buffer) 
 {
-    buffer_ = new std::size_t[capacity_];
-}
-
-ChunkQueue::~ChunkQueue() {
-    delete[] buffer_;
 }
 
 bool ChunkQueue::push(std::size_t index) {
-    auto t = tail_.load(std::memory_order_relaxed);
+    auto t = cb_->tail.load(std::memory_order_relaxed);
     auto next = (t + 1) % capacity_;
 
-    if (next == head_.load(std::memory_order_acquire))
-        return false; // queue full
+    if (next == cb_->head.load(std::memory_order_acquire))
+        return false; 
 
     buffer_[t] = index;
-    tail_.store(next, std::memory_order_release);
+    cb_->tail.store(next, std::memory_order_release);
     return true;
 }
 
 bool ChunkQueue::pop(std::size_t& outIndex) {
-    auto h = head_.load(std::memory_order_relaxed);
+    auto h = cb_->head.load(std::memory_order_relaxed);
 
-    if (h == tail_.load(std::memory_order_acquire))
-        return false; // empty
+    if (h == cb_->tail.load(std::memory_order_acquire))
+        return false; 
 
     outIndex = buffer_[h];
-    head_.store((h + 1) % capacity_, std::memory_order_release);
+    cb_->head.store((h + 1) % capacity_, std::memory_order_release);
     return true;
-}
-
-bool ChunkQueue::empty() const noexcept {
-    return head_.load() == tail_.load();
-}
-
-bool ChunkQueue::full() const noexcept {
-    return ((tail_.load() + 1) % capacity_) == head_.load();
 }
