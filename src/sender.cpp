@@ -50,19 +50,27 @@ int main() {
     PulseNotifier notifier;
     Publisher pub(allocator, queue, notifier, &layout->header);
 
-    // this represents the data coming from sensor driver
-    std::cout << "[SENDER] Generating " << payloadSize << " bytes of source data...\n";
+    // this represents the data coming from sensor
+    std::cout << "[SENDER] Generating " << payloadSize << " bytes of source data..\n";
     std::vector<char> sourceData(payloadSize);
     
-    // Fill it with 'A's just so it's not empty
-    std::memset(sourceData.data(), 'A', payloadSize);
+    // fillinng with a rolling counter (0, 1,..) to simulate sensor data
+    // treating the buffer like an array of 32-bit integers
+    uint32_t* sensorData = reinterpret_cast<uint32_t*>(sourceData.data());
+    size_t integerCount = payloadSize / sizeof(uint32_t);
+
+    for (size_t k = 0; k < integerCount; ++k) {
+        sensorData[k] = (uint32_t)k; 
+    }
 
     std::cout << "[SENDER] Mode: " << (BENCHMARK_MODE ? "REAL-WORLD COPY (memcpy)" : "NORMAL") << "\n";
-    std::cout << "[SENDER] Press ENTER to start...\n";
+    std::cout << "[SENDER] Press ENTER to start..\n";
     std::cin.get();
 
-    // --- THE MAIN LOOP ---
+    // Main loop
     for (int i = 0; i < iterations; ++i) {
+        sensorData[0] = i; 
+
         bool sent = false;
         while (!sent) {
             void* ptr = allocator.allocate();
@@ -86,7 +94,7 @@ int main() {
         }
     }
 
-    std::cout << "[SENDER] Done. Waiting 5s...\n";
+    std::cout << "[SENDER] Done. Waiting 5s..\n";
     std::this_thread::sleep_for(std::chrono::seconds(5));
     return 0;
 }

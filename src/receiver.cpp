@@ -40,6 +40,7 @@ int main() {
             std::cout << "[RECEIVER] Ready!\n";
 
             int count = 0;
+            int errors = 0; // Track data integrity errors
             auto start = std::chrono::high_resolution_clock::now();
             bool firstMsg = true;
 
@@ -50,6 +51,19 @@ int main() {
                         start = std::chrono::high_resolution_clock::now();
                         firstMsg = false;
                     }
+
+                    // read the first integer 
+                    uint32_t* intData = static_cast<uint32_t*>(ptr);
+                    
+                    if (intData[0] != (uint32_t)count) {
+                        // only print first few errors to avoid spam
+                        if (errors < 5) {
+                            std::cerr << "ERROR: Expected Frame " << count << " but got " << intData[0] << "\n";
+                        }
+                        errors++;
+                    }
+                    // -----------------------
+
                     sub.release(ptr);
                     count++;
                 }
@@ -66,6 +80,7 @@ int main() {
 
             std::cout << "\n=== 1MB PAYLOAD RESULTS ===\n";
             std::cout << "Count: " << count << "\n";
+            std::cout << "Errors: " << errors << (errors == 0 ? " (PERFECT)" : " (CORRUPT!!!!!)") << "\n";
             std::cout << "Time:  " << total_us / 1000.0 << " ms\n";
             std::cout << "Speed: " << throughput << " msgs/sec\n";
             std::cout << "Bandwidth: " << mbytesPerSec << " MB/s\n";
