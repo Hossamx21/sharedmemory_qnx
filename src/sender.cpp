@@ -16,21 +16,31 @@ const bool BENCHMARK_MODE = true;
 int main() {
     const std::string shmName = "/demo_shm";
     
-    // 1MB Payload (Like a raw camera frame)
-    const int payloadSize = BENCHMARK_MODE ? (1024 * 1024) : 64;
+    // --- 100 MB TOTAL TEST ---
     
-    // 1000 Iterations = 1 GB total data transferred
-    const int iterations = BENCHMARK_MODE ? 1000 : 100;
-    const std::size_t queueCapacity = BENCHMARK_MODE ? 64 : 16;
+    // 1. Chunk Size: 1 B
+    //const int payloadSize = BENCHMARK_MODE ? (1024 * 1024) : 64;
+    const int payloadSize = BENCHMARK_MODE ? 100 : 64;
+    
+    // 2. Iterations: 100 (Total = 100 MB)
+    //const int iterations = BENCHMARK_MODE ? 100 : 10;
+    const int iterations = BENCHMARK_MODE ? 100 : 10;
+    
+    
+    // 3. Queue Capacity: 16 is plenty (Uses ~16MB RAM)
+    //const std::size_t queueCapacity = BENCHMARK_MODE ? 16 : 4; 
+    const std::size_t queueCapacity = BENCHMARK_MODE ? 16 : 4;
 
-    // SETUP SHARED MEMORY SIZES -
+    // Sizes
     std::size_t layoutSize = sizeof(ShmLayout);
     std::size_t queueDataSize = sizeof(std::size_t) * queueCapacity;
     std::size_t allocatorStartOffset = layoutSize + queueDataSize;
-    std::size_t poolSize = (queueCapacity + 36) * payloadSize;
+    
+    // Allocate pool for Queue + 4 extra chunks for safety
+    std::size_t poolSize = (queueCapacity + 4) * payloadSize;
     std::size_t totalSize = allocatorStartOffset + poolSize + 65536;
 
-    // cllean up old memory
+    // Cleanup
     shm_unlink(shmName.c_str());
 
     std::cout << "[SENDER] Creating Shared Memory (" << totalSize / (1024*1024) << " MB)...\n";
@@ -50,12 +60,11 @@ int main() {
     PulseNotifier notifier;
     Publisher pub(allocator, queue, notifier, &layout->header);
 
-    // this represents the data coming from sensor
-    std::cout << "[SENDER] Generating " << payloadSize << " bytes of source data..\n";
+    // --- DATA GENERATION ---
+    std::cout << "[SENDER] Generating source data (" << payloadSize/1024 << " KB)...\n";
     std::vector<char> sourceData(payloadSize);
     
-    // fillinng with a rolling counter (0, 1,..) to simulate sensor data
-    // treating the buffer like an array of 32-bit integers
+    // Fill with rolling counter for verification
     uint32_t* sensorData = reinterpret_cast<uint32_t*>(sourceData.data());
     size_t integerCount = payloadSize / sizeof(uint32_t);
 
@@ -63,12 +72,12 @@ int main() {
         sensorData[k] = (uint32_t)k; 
     }
 
-    std::cout << "[SENDER] Mode: " << (BENCHMARK_MODE ? "REAL-WORLD COPY (memcpy)" : "NORMAL") << "\n";
-    std::cout << "[SENDER] Press ENTER to start..\n";
+    std::cout << "[SENDER] Mode: 100MB TOTAL (1MB x 100)\n";
+    std::cout << "[SENDER] Press ENTER to start...\n";
     std::cin.get();
 
-    // Main loop
     for (int i = 0; i < iterations; ++i) {
+        // Embed Frame ID
         sensorData[0] = i; 
 
         bool sent = false;
@@ -76,8 +85,7 @@ int main() {
             void* ptr = allocator.allocate();
             
             if (ptr) {
-                // --- REALISTIC TEST ---
-                // we copy FROM our local sensor buffer into shared memory to read and write
+                // Real Copy
                 std::memcpy(ptr, sourceData.data(), payloadSize);
 
                 std::size_t idx = allocator.indexFromPtr(ptr);
@@ -94,7 +102,7 @@ int main() {
         }
     }
 
-    std::cout << "[SENDER] Done. Waiting 5s..\n";
+    std::cout << "[SENDER] Done. Waiting 5s...\n";
     std::this_thread::sleep_for(std::chrono::seconds(5));
     return 0;
 }
