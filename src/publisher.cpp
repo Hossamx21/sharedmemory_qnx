@@ -3,7 +3,11 @@
 void Publisher::publish(const void* data, std::size_t len) {
     void* ptr = allocator_.allocate();
     if (!ptr)
-        return; // TODO: implement allocateBlocking later
+        return; 
+
+    if (len > allocator_.getChunkSize()) {
+    len = allocator_.getChunkSize(); // or return false
+    }
 
     std::memcpy(ptr, data, len);
 
@@ -12,6 +16,6 @@ void Publisher::publish(const void* data, std::size_t len) {
     if (queue_.push(idx)) {
         notifier_.notify(hdr_);
     } else {
-        allocator_.release(ptr);
+        allocator_.release(ptr); /*The message cannot be delivered now. Free the chunk:*/
     }
 }

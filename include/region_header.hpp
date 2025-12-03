@@ -9,6 +9,11 @@ struct RegionHeader {
     uint32_t payloadOffset;
 
     // Pulse-based notification fields
-    int32_t notify_pid;      // subscriber pid
-    int32_t notify_chid;     // subscriber channel id
+    int32_t notify_pid;      
+    /*PID of the subscriber process (consumer).
+    The process that wants to receive a QNX pulse when new data arrives. */
+
+    int32_t notify_chid;     
+    /*Channel ID created by consumer using ChannelCreate().
+      Pulses are delivered to this channel.*/
 };

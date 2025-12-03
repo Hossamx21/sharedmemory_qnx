@@ -65,7 +65,7 @@ int main() {
     std::vector<char> sourceData(payloadSize);
     
     // Fill with rolling counter for verification
-    uint32_t* sensorData = reinterpret_cast<uint32_t*>(sourceData.data());
+    uint32_t* sensorData = reinterpret_cast<uint32_t*>(sourceData.data()); //verify
     size_t integerCount = payloadSize / sizeof(uint32_t);
 
     for (size_t k = 0; k < integerCount; ++k) {
@@ -78,7 +78,7 @@ int main() {
 
     for (int i = 0; i < iterations; ++i) {
         // Embed Frame ID
-        sensorData[0] = i; 
+        sensorData[0] = i;
 
         bool sent = false;
         while (!sent) {
@@ -86,11 +86,14 @@ int main() {
             
             if (ptr) {
                 // Real Copy
-                std::memcpy(ptr, sourceData.data(), payloadSize);
+                std::memcpy(ptr, sourceData.data(), payloadSize); //verify when returning 
 
                 std::size_t idx = allocator.indexFromPtr(ptr);
                 if (queue.push(idx)) {
-                    notifier.notify(&layout->header);
+                    bool ok = notifier.notify(&layout->header);
+                    if (!ok) {
+                        // optional logging or retry
+                    }
                     sent = true;
                 } else {
                     allocator.release(ptr);

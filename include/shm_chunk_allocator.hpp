@@ -18,6 +18,9 @@ public:
 
     // Non-blocking: returns nullptr if no free chunk.
     void* allocate() noexcept;
+    
+    std::size_t getChunkSize() const noexcept { return chunkSize_; }
+
 
     // Mark that a user has an additional reference to the chunk.
     void  retain(void* ptr) noexcept;

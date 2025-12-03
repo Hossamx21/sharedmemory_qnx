@@ -49,6 +49,8 @@ int main() {
             bool firstMsg = true;
 
             while (count < iterations) {
+                /*every message the Subscriber will call createReceiver(hdr_) and wait() thereafter. However PulseNotifier::createReceiver() returns early if chid_ != -1.
+                 But receiveBlocking() calls createReceiver(hdr_) every time, that is redundant*/
                 void* ptr = sub.receiveBlocking();
                 if (ptr) {
                     if (firstMsg) {

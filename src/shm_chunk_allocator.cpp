@@ -17,7 +17,7 @@ ShmChunkAllocator::ShmChunkAllocator(ShmRegion& region, std::size_t chunkSize, s
         if (startOffset >= regionSize) throw std::runtime_error("Offset exceeds region size");
         
         std::size_t available = regionSize - startOffset;
-        std::size_t maxChunks = available / (sizeof(ChunkHeader) + chunkSize_);
+        std::size_t maxChunks = available / (sizeof(ChunkHeader) + chunkSize_); //store all ChunkHeaders first (capacity_sizeof(header)) then contiguous payload area (capacity_chunkSize_)
 
         capacity_ = maxChunks;
 
@@ -28,33 +28,36 @@ ShmChunkAllocator::ShmChunkAllocator(ShmRegion& region, std::size_t chunkSize, s
         hdr_->payloadOffset = startOffset + (capacity_ * sizeof(ChunkHeader));
         
         // Stash the offset so we know where headers begin
-        hdr_->headerSize = startOffset; 
+        hdr_->headerSize = startOffset;  //odd naming — earlier we assumed headerSize == size of the header region
 
         // Place Chunk Headers starting at the offset
-        chunkHdrs_ = reinterpret_cast<ChunkHeader*>(base + startOffset);
+        chunkHdrs_ = reinterpret_cast<ChunkHeader*>(base + startOffset); //Potential integer overflow: capacity_*sizeof(ChunkHeader) or startOffset + (...) can overflow std::size_t
         
         for (std::size_t i = 0; i < capacity_; ++i) {
-            chunkHdrs_[i].refCount.store(0);
-            chunkHdrs_[i].inUse.store(0);
+            chunkHdrs_[i].state.store(0);
         }
     } else {
         if (hdr_->magic != MAGIC) throw std::runtime_error("Invalid shared memory magic");
         
         capacity_ = hdr_->capacity;
-        chunkSize_ = hdr_->chunkSize;
+        chunkSize_ = hdr_->chunkSize; //overwrites chunkSize_ passed in constructor
         // Reader uses the stored offset to find headers
         chunkHdrs_ = reinterpret_cast<ChunkHeader*>(base + hdr_->headerSize);
     }
 
     payloadBase_ = base + hdr_->payloadOffset;
 }
+/*payloadBase_ + capacity_*chunkSize_ <= regionSize (no out-of-bounds).
+hdr_->payloadOffset > startOffset + capacity_ * sizeof(ChunkHeader)? Actually computed equal; but you must ensure payload doesn't overlap headers.
+chunkSize_ must be large enough to hold the data required and alignment requirements.*/
 
 // ... (Rest of functions: allocate, retain, release, indexFromPtr, ptrFromIndex remain the same) ...
 void* ShmChunkAllocator::allocate() noexcept {
+    //suggests a better design: store free chunk indices in the queue so allocate() pop()s a free index (fast) and release() push()es index back — this avoids O(N) scan and race complexity
     for (std::size_t i = 0; i < capacity_; ++i) {
-        uint8_t expected = 0;
-        if (chunkHdrs_[i].inUse.compare_exchange_strong(expected, 1)) {
-            chunkHdrs_[i].refCount.store(1);
+       uint32_t expected = 0;
+       uint32_t desired  = 3; // inUse=1, refcount=1
+        if (chunkHdrs_[i].state.compare_exchange_strong(expected, desired)) {
             return payloadBase_ + i * chunkSize_;
         }
     }
@@ -63,21 +66,39 @@ void* ShmChunkAllocator::allocate() noexcept {
 
 void ShmChunkAllocator::retain(void* ptr) noexcept {
     auto idx = indexFromPtr(ptr);
-    if (idx < capacity_) chunkHdrs_[idx].refCount.fetch_add(1);
-}
-
-void ShmChunkAllocator::release(void* ptr) noexcept {
-    auto idx = indexFromPtr(ptr);
     if (idx < capacity_) {
-        uint32_t prev = chunkHdrs_[idx].refCount.fetch_sub(1);
-        if (prev == 1) chunkHdrs_[idx].inUse.store(0);
+        // add 1 to refcount -> encoded as +2 in the state word
+        chunkHdrs_[idx].state.fetch_add((1u << 1), std::memory_order_acq_rel);
     }
 }
 
+
+void ShmChunkAllocator::release(void* ptr) noexcept {
+    auto idx = indexFromPtr(ptr);
+    if (idx >= capacity_) return;
+
+    // subtract one ref (2 in encoded units)
+    uint32_t prev = chunkHdrs_[idx].state.fetch_sub((1u << 1), std::memory_order_acq_rel);
+    uint32_t prevRefs = prev >> 1;
+    if (prevRefs == 1u) {
+        // after decrement, refcount is zero — try to clear inUse bit
+        uint32_t expected = (0u << 1) | 1u; // refcount=0, inUse=1 -> value == 1
+        chunkHdrs_[idx].state.compare_exchange_strong(expected, 0u,
+            std::memory_order_acq_rel, std::memory_order_relaxed);
+    }
+}
+
+
 std::size_t ShmChunkAllocator::indexFromPtr(void* ptr) const noexcept {
-    return (static_cast<uint8_t*>(ptr) - payloadBase_) / chunkSize_;
+    if (!ptr) return capacity_; // invalid guard
+    std::ptrdiff_t diff = static_cast<uint8_t*>(ptr) - payloadBase_; // invalid guard
+    if (diff < 0) return capacity_;
+    std::size_t idx = static_cast<std::size_t>(diff) / chunkSize_;
+    if (idx >= capacity_) return capacity_;
+    return idx;
 }
 
 void* ShmChunkAllocator::ptrFromIndex(std::size_t idx) const noexcept {
+    if (idx >= capacity_) return nullptr;
     return payloadBase_ + idx * chunkSize_;
 }

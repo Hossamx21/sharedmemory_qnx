@@ -9,12 +9,9 @@ public:
     Subscriber(ShmChunkAllocator& allocator,
                ChunkQueue& queue,
                PulseNotifier& notifier,
-               RegionHeader* hdr)
-        : allocator_(allocator),
-          queue_(queue),
-          notifier_(notifier),
-          hdr_(hdr)
-    {}
+               RegionHeader* hdr);
+        
+
 
     // Subscriber waits for pulse
     void* receiveBlocking();
