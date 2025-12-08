@@ -18,7 +18,7 @@ public:
 
     // Non-blocking: returns nullptr if no free chunk.
     void* allocate() noexcept;
-    
+
     std::size_t getChunkSize() const noexcept { return chunkSize_; }
 
 
@@ -31,6 +31,9 @@ public:
     std::size_t indexFromPtr(void* ptr) const noexcept;
 
     void* ptrFromIndex(std::size_t idx) const noexcept;
+
+    void setInitialRefCount(std::size_t idx, uint32_t subscribers);
+
 
     
 

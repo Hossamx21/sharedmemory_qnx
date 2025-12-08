@@ -1,5 +1,6 @@
 D:/QNX/qnx_shm_/build/CMakeFiles/qnx_shm_.dir
 D:/QNX/qnx_shm_/build/CMakeFiles/shm_sender.dir
 D:/QNX/qnx_shm_/build/CMakeFiles/shm_receiver.dir
+D:/QNX/qnx_shm_/build/CMakeFiles/shm_receiver_ad.dir
 D:/QNX/qnx_shm_/build/CMakeFiles/edit_cache.dir
 D:/QNX/qnx_shm_/build/CMakeFiles/rebuild_cache.dir

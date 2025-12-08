@@ -23,11 +23,17 @@ public:
     // Publisher side: attach to receiver stored inside RegionHeader
     bool attachToReceiver(const RegionHeader* hdr) noexcept;
 
+    // Multi Subscriber Mode
+    bool attachToSpecific(int32_t pid, int32_t chid);
+
+
     // Send pulse to receiver; will retry attach automatically
     bool notify(const RegionHeader* hdr) noexcept;
 
     // Receiver blocks here for pulse
     bool wait() noexcept;
+
+    int getChid() const noexcept { return chid_; }
 
     // Cleanup
     void close() noexcept;

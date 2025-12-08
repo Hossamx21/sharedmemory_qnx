@@ -4,18 +4,18 @@ static constexpr int PULSE_CODE_DATA = 1;
 
 PulseNotifier::PulseNotifier() = default;
 PulseNotifier::~PulseNotifier() { close(); }
-
-bool PulseNotifier::createReceiver(RegionHeader* hdr) noexcept {
-    if (!hdr) return false;
+bool PulseNotifier::createReceiver(RegionHeader* /*hdr*/) noexcept {
     if (chid_ != -1) return true;
 
     chid_ = ChannelCreate(0);
     if (chid_ == -1) return false;
-//Creates a QNX channel and writes the PID + chid into the shared memory header so publisher can connect.
-    hdr->notify_pid  = getpid();
-    hdr->notify_chid = chid_;
+
+    // IMPORTANT: Do NOT write to any global RegionHeader fields here.
+    // Registration into the RegionHeader's subscribers[] is done by caller,
+    // which will store getChid() / getpid() into the subscriber slot.
     return true;
 }
+
 //It writes hdr->notify_pid/notify_chid directly, overwriting previous values. If multiple subscribers run simultaneously and use the same header, they will overwrite one another.
 
 bool PulseNotifier::attachToReceiver(const RegionHeader* hdr) noexcept {
@@ -23,11 +23,14 @@ bool PulseNotifier::attachToReceiver(const RegionHeader* hdr) noexcept {
 
     if (coid_ != -1)
         return true;
-// use payload pulse
-    int32_t pid  = hdr->notify_pid;
-    int32_t chid = hdr->notify_chid;
 
-    if (pid == 0 || chid == 0)
+    // Use subscriber slot 0 by convention
+    const auto& s = hdr->subscribers[0];
+
+    int32_t pid  = s.pid.load();
+    int32_t chid = s.chid.load();
+
+    if (!s.active.load() || pid == 0 || chid == 0)
         return false;
 
     coid_ = ConnectAttach(ND_LOCAL_NODE, pid, chid, _NTO_SIDE_CHANNEL, 0);
@@ -37,6 +40,26 @@ bool PulseNotifier::attachToReceiver(const RegionHeader* hdr) noexcept {
     }
     return true;
 }
+
+
+bool PulseNotifier::attachToSpecific(int32_t pid, int32_t chid) {
+    if (pid == 0 || chid == 0) return false;
+
+    // detach any stale connection first
+    if (coid_ != -1) {
+        ConnectDetach(coid_);
+        coid_ = -1;
+    }
+
+    coid_ = ConnectAttach(ND_LOCAL_NODE, pid, chid, _NTO_SIDE_CHANNEL, 0);
+    if (coid_ == -1) {
+        coid_ = -1;
+        return false;
+    }
+    return true;
+}
+
+
 
 bool PulseNotifier::notify(const RegionHeader* hdr) noexcept {
     if (!hdr) return false;

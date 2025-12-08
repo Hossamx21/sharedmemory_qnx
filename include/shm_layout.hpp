@@ -14,6 +14,10 @@ struct QueueControlBlock {
 // The Master Map of the shared memory region
 struct ShmLayout {
     RegionHeader header;        
-    QueueControlBlock queue;    
+    // Queue 0: The "History" Queue (For the Logger)
+    QueueControlBlock queueLogger;    
+    
+    // Queue 1: The "Latest" Queue (For the AD System)
+    QueueControlBlock queueAD;    
     // Data buffer follows immediately after this struct
 };

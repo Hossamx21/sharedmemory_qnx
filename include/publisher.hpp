@@ -2,25 +2,32 @@
 
 #include "shm_chunk_allocator.hpp"
 #include "chunk_queue.hpp"
-#include "pulse_notifier.hpp"
-#include <cstring>
+#include "region_header.hpp"
+#include <vector>
+#include <sys/neutrino.h> // For ConnectAttach/Detach
+
 class Publisher {
 public:
-    Publisher(ShmChunkAllocator& allocator,
-              ChunkQueue& queue,
-              PulseNotifier& notifier,
-              RegionHeader* hdr)
-        : allocator_(allocator),
-          queue_(queue),
-          notifier_(notifier),
-          hdr_(hdr)
-    {}
+    // UPDATE: Constructor now only takes Allocator and Header
+    // (We removed ChunkQueue& and PulseNotifier&)
+    Publisher(ShmChunkAllocator& allocator, RegionHeader* hdr);
+
+    ~Publisher();
+
+    // New method to add multiple queues (AD, Logger, etc.)
+    void addQueue(ChunkQueue* queue);
 
     void publish(const void* data, std::size_t len);
 
 private:
+    void notifyAllSubscribers();
+
     ShmChunkAllocator& allocator_;
-    ChunkQueue& queue_;
-    PulseNotifier& notifier_;
     RegionHeader* hdr_;
+    
+    // UPDATE: We now store a LIST of queues, not just one reference
+    std::vector<ChunkQueue*> queues_;
+
+    // Cache for Connection IDs
+    std::vector<int> coids_;
 };

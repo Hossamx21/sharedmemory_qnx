@@ -1,7 +1,6 @@
 #include "shm_region.hpp"
 #include "shm_chunk_allocator.hpp"
 #include "chunk_queue.hpp"
-#include "pulse_notifier.hpp"
 #include "publisher.hpp"
 #include "shm_layout.hpp"
 #include <iostream>
@@ -9,103 +8,105 @@
 #include <vector>
 #include <cstring>
 #include <new>
-#include <sys/mman.h>
+#include <iomanip>
 
-const bool BENCHMARK_MODE = true; 
+// Helper to print hex
+void printHex(const char* label, const uint8_t* data, size_t len) {
+    std::cout << label << " [ ";
+    for (size_t i = 0; i < len; ++i) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') 
+                  << (int)data[i] << " ";
+    }
+    std::cout << std::dec << "]\n";
+}
 
 int main() {
     const std::string shmName = "/demo_shm";
-    
-    // --- 100 MB TOTAL TEST ---
-    
-    // 1. Chunk Size: 1 B
-    //const int payloadSize = BENCHMARK_MODE ? (1024 * 1024) : 64;
-    const int payloadSize = BENCHMARK_MODE ? 100 : 64;
-    
-    // 2. Iterations: 100 (Total = 100 MB)
-    //const int iterations = BENCHMARK_MODE ? 100 : 10;
-    const int iterations = BENCHMARK_MODE ? 100 : 10;
-    
-    
-    // 3. Queue Capacity: 16 is plenty (Uses ~16MB RAM)
-    //const std::size_t queueCapacity = BENCHMARK_MODE ? 16 : 4; 
-    const std::size_t queueCapacity = BENCHMARK_MODE ? 16 : 4;
+    const int payloadSize = 100; 
+    const int iterations = 100;   
+    const std::size_t capLogger = 16; 
+    const std::size_t capAD     = 2; 
 
-    // Sizes
+    // --- MEMORY LAYOUT ---
     std::size_t layoutSize = sizeof(ShmLayout);
-    std::size_t queueDataSize = sizeof(std::size_t) * queueCapacity;
-    std::size_t allocatorStartOffset = layoutSize + queueDataSize;
-    
-    // Allocate pool for Queue + 4 extra chunks for safety
-    std::size_t poolSize = (queueCapacity + 4) * payloadSize;
-    std::size_t totalSize = allocatorStartOffset + poolSize + 65536;
+    std::size_t bufSizeLog = sizeof(std::size_t) * capLogger;
+    std::size_t bufSizeAD  = sizeof(std::size_t) * capAD;
+    std::size_t offsetLog = layoutSize;
+    std::size_t offsetAD  = layoutSize + bufSizeLog;
+    std::size_t offsetAlloc = layoutSize + bufSizeLog + bufSizeAD;
+    std::size_t poolSize = (capLogger + capAD + 8) * payloadSize; 
+    std::size_t totalSize = offsetAlloc + poolSize + 65536;
 
-    // Cleanup
     shm_unlink(shmName.c_str());
 
-    std::cout << "[SENDER] Creating Shared Memory (" << totalSize / (1024*1024) << " MB)...\n";
+    std::cout << "[SENDER] Creating Shared Memory...\n";
     ShmRegion region(shmName, totalSize, ShmRegion::Mode::Create);
     
     uint8_t* base = static_cast<uint8_t*>(region.getBase());
     ShmLayout* layout = reinterpret_cast<ShmLayout*>(base);
-    std::size_t* queueBuffer = reinterpret_cast<std::size_t*>(base + sizeof(ShmLayout));
+    std::size_t* bufferLog = reinterpret_cast<std::size_t*>(base + offsetLog);
+    std::size_t* bufferAD  = reinterpret_cast<std::size_t*>(base + offsetAD);
 
     if (region.isCreator()) {
         new (&layout->header) RegionHeader();
-        new (&layout->queue) QueueControlBlock();
+        new (&layout->queueLogger) QueueControlBlock();
+        new (&layout->queueAD)     QueueControlBlock();
     }
 
-    ShmChunkAllocator allocator(region, payloadSize + 32, allocatorStartOffset);
-    ChunkQueue queue(&layout->queue, queueBuffer, queueCapacity);
-    PulseNotifier notifier;
-    Publisher pub(allocator, queue, notifier, &layout->header);
+    ShmChunkAllocator allocator(region, payloadSize, offsetAlloc);
+    ChunkQueue queueLogger(&layout->queueLogger, bufferLog, capLogger);
+    ChunkQueue queueAD(&layout->queueAD, bufferAD, capAD);
+    Publisher pub(allocator, &layout->header);
 
-    // --- DATA GENERATION ---
-    std::cout << "[SENDER] Generating source data (" << payloadSize/1024 << " KB)...\n";
-    std::vector<char> sourceData(payloadSize);
-    
-    // Fill with rolling counter for verification
-    uint32_t* sensorData = reinterpret_cast<uint32_t*>(sourceData.data()); //verify
-    size_t integerCount = payloadSize / sizeof(uint32_t);
+    pub.addQueue(&queueLogger);
+    pub.addQueue(&queueAD);
 
-    for (size_t k = 0; k < integerCount; ++k) {
-        sensorData[k] = (uint32_t)k; 
-    }
-
-    std::cout << "[SENDER] Mode: 100MB TOTAL (1MB x 100)\n";
     std::cout << "[SENDER] Press ENTER to start...\n";
     std::cin.get();
 
+    std::vector<uint8_t> buffer(payloadSize);
+
+    /// --- BENCHMARK START ---
+    auto start = std::chrono::high_resolution_clock::now();
+
     for (int i = 0; i < iterations; ++i) {
-        // Embed Frame ID
-        sensorData[0] = i;
+        // 1. Fill Header (Frame ID)
+        uint32_t* header = reinterpret_cast<uint32_t*>(buffer.data());
+        header[0] = i; 
 
-        bool sent = false;
-        while (!sent) {
-            void* ptr = allocator.allocate();
-            
-            if (ptr) {
-                // Real Copy
-                std::memcpy(ptr, sourceData.data(), payloadSize); //verify when returning 
-
-                std::size_t idx = allocator.indexFromPtr(ptr);
-                if (queue.push(idx)) {
-                    bool ok = notifier.notify(&layout->header);
-                    if (!ok) {
-                        // optional logging or retry
-                    }
-                    sent = true;
-                } else {
-                    allocator.release(ptr);
-                    std::this_thread::yield(); 
-                }
-            } else {
-                std::this_thread::yield();
-            }
+        // 2. Fill Data Pattern (start after the 4-byte Frame ID)
+        for (int k = 4; k < payloadSize; ++k) {
+            buffer[k] = (uint8_t)((k + i) % 255); // Simple pattern
         }
+        
+        pub.publish(buffer.data(), payloadSize);
+
+        // Visual check of first 16 bytes
+        std::cout << "[SENDER] >>> Sent Frame " << i << ": ";
+        printHex("", buffer.data(), 16);
+        
+        //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
-    std::cout << "[SENDER] Done. Waiting 5s...\n";
+    // --- BENCHMARK END ---
+    auto end = std::chrono::high_resolution_clock::now();
+    
+    std::chrono::duration<double> diff = end - start;
+    double seconds = diff.count();
+    
+    double totalMB = (double)(iterations * payloadSize) / (1024.0 * 1024.0);
+    double bandwidth = totalMB / seconds;
+    double msgsPerSec = iterations / seconds;
+
+    std::cout << "\n[RESULT] Finished!\n";
+    std::cout << "------------------------------------------\n";
+    std::cout << " Time Elapsed: " << std::fixed << std::setprecision(4) << seconds << " s\n";
+    std::cout << " Total Data:   " << totalMB << " MB\n";
+    std::cout << " Bandwidth:    " << bandwidth << " MB/s\n";
+    std::cout << " Speed:        " << msgsPerSec << " Frames/sec\n";
+    std::cout << "------------------------------------------\n";
+    std::cout << "[SENDER] Done.\n";
+
     std::this_thread::sleep_for(std::chrono::seconds(5));
     return 0;
 }

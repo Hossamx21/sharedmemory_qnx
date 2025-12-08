@@ -48,4 +48,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/qnx_shm_.dir/DependInfo.cmake"
   "CMakeFiles/shm_sender.dir/DependInfo.cmake"
   "CMakeFiles/shm_receiver.dir/DependInfo.cmake"
+  "CMakeFiles/shm_receiver_ad.dir/DependInfo.cmake"
   )

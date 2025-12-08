@@ -155,6 +155,19 @@ shm_receiver/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/build
 .PHONY : shm_receiver/fast
 
+#=============================================================================
+# Target rules for targets named shm_receiver_ad
+
+# Build rule for target.
+shm_receiver_ad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shm_receiver_ad
+.PHONY : shm_receiver_ad
+
+# fast build rule for target.
+shm_receiver_ad/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver_ad.dir/build.make CMakeFiles/shm_receiver_ad.dir/build
+.PHONY : shm_receiver_ad/fast
+
 src/chunk_queue.o: src/chunk_queue.cpp.o
 .PHONY : src/chunk_queue.o
 
@@ -250,6 +263,30 @@ src/receiver.s: src/receiver.cpp.s
 src/receiver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver.dir/build.make CMakeFiles/shm_receiver.dir/src/receiver.cpp.s
 .PHONY : src/receiver.cpp.s
+
+src/receiver_ad.o: src/receiver_ad.cpp.o
+.PHONY : src/receiver_ad.o
+
+# target to build an object file
+src/receiver_ad.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver_ad.dir/build.make CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o
+.PHONY : src/receiver_ad.cpp.o
+
+src/receiver_ad.i: src/receiver_ad.cpp.i
+.PHONY : src/receiver_ad.i
+
+# target to preprocess a source file
+src/receiver_ad.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver_ad.dir/build.make CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.i
+.PHONY : src/receiver_ad.cpp.i
+
+src/receiver_ad.s: src/receiver_ad.cpp.s
+.PHONY : src/receiver_ad.s
+
+# target to generate assembly for a file
+src/receiver_ad.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_receiver_ad.dir/build.make CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.s
+.PHONY : src/receiver_ad.cpp.s
 
 src/sender.o: src/sender.cpp.o
 .PHONY : src/sender.o
@@ -357,6 +394,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... qnx_shm_"
 	@echo "... shm_receiver"
+	@echo "... shm_receiver_ad"
 	@echo "... shm_sender"
 	@echo "... src/chunk_queue.o"
 	@echo "... src/chunk_queue.i"
@@ -370,6 +408,9 @@ help:
 	@echo "... src/receiver.o"
 	@echo "... src/receiver.i"
 	@echo "... src/receiver.s"
+	@echo "... src/receiver_ad.o"
+	@echo "... src/receiver_ad.i"
+	@echo "... src/receiver_ad.s"
 	@echo "... src/sender.o"
 	@echo "... src/sender.i"
 	@echo "... src/sender.s"

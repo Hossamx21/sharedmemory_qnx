@@ -21,6 +21,11 @@ public:
 
     void release(void* ptr);
 
+    void registerToHeader(); //initialize all receivers
+
+    void* receiveLatest();
+
+
 private:
     ShmChunkAllocator& allocator_;
     ChunkQueue& queue_;

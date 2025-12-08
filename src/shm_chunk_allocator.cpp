@@ -102,3 +102,12 @@ void* ShmChunkAllocator::ptrFromIndex(std::size_t idx) const noexcept {
     if (idx >= capacity_) return nullptr;
     return payloadBase_ + idx * chunkSize_;
 }
+
+void ShmChunkAllocator::setInitialRefCount(std::size_t idx, uint32_t subs) {
+    if (idx >= capacity_) return;
+    if (subs == 0) return; // nothing to add
+
+    // encoded units: refcount is stored shifted by 1 => add subs << 1
+    uint32_t delta = (subs << 1);
+    chunkHdrs_[idx].state.fetch_add(delta, std::memory_order_acq_rel);
+}
