@@ -706,75 +706,6 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/unistd.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/confname.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/sys/process.h \
- D:/QNX/qnx_shm_/include/shm_chunk_allocator.hpp \
- D:/QNX/qnx_shm_/include/region_header.hpp \
- D:/QNX/qnx_shm_/include/chunk_header.hpp \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/condition_variable \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__condition_variable/condition_variable.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/mutex.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/unique_lock.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/tag_types.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/system_error.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_category.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_code.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/errc.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cerrno \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_condition.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/lock_guard.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_callback.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_state.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/id.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_token.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/system_error \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/mutex \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/once_flag.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/vector \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__bit_reference \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_fwd.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_bool.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/concepts.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_parse_context.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_error.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_integral.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_integral.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/tables.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_base_10.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_result.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/traits.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/make_32_64_or_128_bit.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_output.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/buffer.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_to_n_result.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/parser_std_format_spec.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_arg.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_string.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/unicode.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/extended_grapheme_cluster_table.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/width_estimation_table.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/array \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/locale \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__utility/no_destroy.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/clocale \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/locale.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/locale.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/qnx/xlocale.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/xlocale/__posix_l_fallback.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/xlocale/__strtonum_fallback.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/ios \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/streambuf \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_fallbacks.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale_dir/locale_base_api/locale_guard.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/stdarg.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cstdarg \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__memory/temp_value.h \
- C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__split_buffer \
- D:/QNX/qnx_shm_/include/chunk_queue.hpp \
- D:/QNX/qnx_shm_/include/shm_layout.hpp \
  D:/QNX/qnx_shm_/include/pulse_notifier.hpp \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/sys/neutrino.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/sys/states.h \
@@ -793,22 +724,70 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/sys/iomgr.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/stdbool.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/stdbool.h \
- D:/QNX/qnx_shm_/include/subscriber.hpp \
+ D:/QNX/qnx_shm_/include/region_header.hpp \
+ D:/QNX/qnx_shm_/include/shm_layout.hpp \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/iostream \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/ios \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/once_flag.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__utility/no_destroy.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/clocale \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/locale.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/locale.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/qnx/xlocale.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/xlocale/__posix_l_fallback.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__support/xlocale/__strtonum_fallback.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_category.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_code.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/errc.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cerrno \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/error_condition.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__system_error/system_error.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/mutex \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__condition_variable/condition_variable.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/mutex.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/unique_lock.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/tag_types.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__mutex/lock_guard.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/id.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/system_error \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/istream \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/ostream \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/bitset \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__bit_reference \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/format \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/buffer.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/concepts.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_fwd.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_parse_context.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_error.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_to_n_result.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/container_adaptor.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/range_default_formatter.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__chrono/statically_widen.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/range_formatter.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_context.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_arg.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_arg_store.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_args.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/locale \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/streambuf \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_fallbacks.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__locale_dir/locale_base_api/locale_guard.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/stdarg.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cstdarg \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_output.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/parser_std_format_spec.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_string.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/unicode.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/extended_grapheme_cluster_table.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/width_estimation_table.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__ranges/ref_view.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/queue \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/deque \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__memory/temp_value.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__split_buffer \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/functional \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/binary_negate.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/bind.h \
@@ -818,11 +797,21 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/binder1st.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/binder2nd.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/boyer_moore_searcher.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/array \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/unordered_map \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/is_transparent.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__hash_table \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__iterator/ranges_iterator_traits.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__node_handle \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/vector \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_bool.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/formatter_integral.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_integral.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/tables.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_base_10.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/to_chars_result.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__charconv/traits.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/make_32_64_or_128_bit.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/compose.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/default_searcher.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/function.h \
@@ -851,6 +840,11 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/formatter.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/jthread.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_source.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_state.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
+ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_token.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/thread.h \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/sstream \
  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__thread/this_thread.h \

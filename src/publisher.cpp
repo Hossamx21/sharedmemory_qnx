@@ -71,71 +71,10 @@ Publisher::~Publisher() {
         allocator_.release(ptr); /*The message cannot be delivered now. Free the chunk:*/
     
     void Publisher::publish(const void* data, std::size_t len) {
-    // 1. Allocate Memory (Standard)
-    void* ptr = allocator_.allocate();
-    if (!ptr) {
-        // Allocator is full. In a real system, you might log an error here.
-        return; 
-    }
-
-    if (len > allocator_.getChunkSize()) {
-        len = allocator_.getChunkSize(); 
-    }
-
-    // 2. Copy Data (Zero-Copy Preparation)
-    std::memcpy(ptr, data, len);
-    // 3. Prepare for Multicast
-    // We have 1 reference from allocate().
-    // If we have N queues, we need N references total.
-    // So we must retain() (N - 1) times.
-    for (size_t i = 1; i < queues_.size(); ++i) {
-        allocator_.retain(ptr);
-    }
-    std::size_t newIdx = allocator_.indexFromPtr(ptr);
-    // 4. Push to ALL Queues
-    for (ChunkQueue* q : queues_) {
-        // Try to push. If full, force-pop the oldest item.
-        while (!q->push(newIdx)) {
-            std::size_t oldIdx;
-            
-            // Force remove the oldest item to make room (Ring Buffer behavior)
-            if (q->pop(oldIdx)) {
-                // We stole 'oldIdx' from the queue. 
-                // The subscriber will never see it, so we must release its memory.
-                allocator_.release(allocator_.ptrFromIndex(oldIdx));
-            } else {
-                // Queue reported full, but pop failed? (Rare race condition).
-                sched_yield();
-            }
-        }
-    }
-    // We try to push the new index to the queue.
-    // If push() returns false (Queue Full), we enter the loop.
-    /*while (!queue_.push(newIdx)) {
-        
-        std::size_t oldIdx; //it gets filled in ChunkQueue::pop
-        
-        // We force-pop (remove) the oldest item to make room.
-        if (queue_.pop(oldIdx)) {
-            // CLEANUP: We stole 'oldIdx' back from the queue.
-            // Since the Subscriber never read it, we must free it.
-            allocator_.release(allocator_.ptrFromIndex(oldIdx));
-        } else {
-            // Queue was full, but pop failed? (Race condition).
-            // Yield CPU and try again.
-            std::this_thread::yield();
-        }
-    }*/
-    // 5. Notify
-    notifyAllSubscribers();
+    
 }
 
 
-void Publisher::addQueue(ChunkQueue* queue) {
-    if (queue) {
-        queues_.push_back(queue);
-    }
-}
 
 void Publisher::notifyAllSubscribers() {
     // Pulse code must match what Subscriber expects (usually 1)

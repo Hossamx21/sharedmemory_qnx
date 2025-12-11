@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "shm_layout.hpp" 
 #include <cstddef>
 
@@ -17,4 +17,4 @@ private:
     // These pointers reference the Shared Memory (via ShmLayout)
     QueueControlBlock* cb_; 
     std::size_t* buffer_;   
-};
+};*/

@@ -1,4 +1,4 @@
-#include "chunk_queue.hpp"
+/*#include "chunk_queue.hpp"
 #include "shm_layout.hpp" 
 
 ChunkQueue::ChunkQueue(QueueControlBlock* cb, std::size_t* buffer, std::size_t capacity)
@@ -19,7 +19,7 @@ bool ChunkQueue::push(std::size_t index) {
     /*memory_order_release ensures:
      Write to buffer happens before updating tail.
     Other processes see a consistent order. */
-}
+/*}
     bool ChunkQueue::pop(std::size_t& outIndex) {
     // 1. Snapshot the current Head
     // We read where the head is RIGHT NOW.
@@ -50,7 +50,7 @@ bool ChunkQueue::push(std::size_t index) {
         }
         // If we failed, the loop restarts automatically using the updated 'h'.
     }
-}
+}*/
 
 
 /*bool ChunkQueue::pop(std::size_t& outIndex) {

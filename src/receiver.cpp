@@ -1,115 +1,102 @@
 #include "shm_region.hpp"
-#include "shm_chunk_allocator.hpp"
-#include "chunk_queue.hpp"
 #include "pulse_notifier.hpp"
-#include "subscriber.hpp"
 #include "shm_layout.hpp"
 #include <iostream>
 #include <thread>
-#include <iomanip>
 #include <vector>
+#include <iomanip>
+#include <sched.h>
 
-void verifyAndPrint(const void* ptr, int size) {
-    const uint8_t* data = static_cast<const uint8_t*>(ptr);
-    const uint32_t* header = static_cast<const uint32_t*>(ptr);
-    uint32_t frameId = header[0];
+// Helper to register simple subscribers in the header table
+void registerSelf(RegionHeader* hdr, PulseNotifier& notifier) {
+    notifier.createReceiver(nullptr);
+    int pid = getpid();
+    int chid = notifier.getChid();
+    for (int i=0; i<2; ++i) {
+        bool exp = false;
+        // Find a slot that is NOT active and atomically claim it
+        if (hdr->subscribers[i].active.compare_exchange_strong(exp, true)) {
+            hdr->subscribers[i].pid = pid;
+            hdr->subscribers[i].chid = chid;
+            return;
+        }
+    }
+}
 
-    // Check Data Integrity
-    bool error = false;
-    for (int k = 4; k < size; ++k) {
-        uint8_t expected = (uint8_t)((k + frameId) % 255);
-        if (data[k] != expected) {
-            error = true;
+// Verification function: Checks if data matches the expected pattern
+void printAndVerify(const std::string& name, void* ptr) {
+    uint8_t* d = static_cast<uint8_t*>(ptr);
+    uint32_t* h = reinterpret_cast<uint32_t*>(ptr);
+    uint32_t fid = h[0];
+
+    // Verify Pattern: d[k] must equal (k + fid) % 255
+    bool err = false;
+    for(int k=4; k<1024; ++k) {
+        if (d[k] != (uint8_t)((k + fid) % 255)) {
+            err = true;
             break;
         }
     }
 
-    std::cout << "    [LOG] <<< Frame " << frameId << ": ";
-    // Print first 8 bytes hex
+    std::cout << "[" << name << "] Frame " << fid << " ";
     std::cout << "[ ";
-    for(int i=0; i<8; ++i) 
-        std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)data[i] << " ";
-    std::cout << std::dec << "] ";
-
-    if (error) std::cout << " (DATA ERROR!)\n";
-    else       std::cout << " (Data OK)\n";
+    // Print first 16 bytes
+    for(int i=0; i<16; ++i) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)d[i] << " ";
+    }
+    std::cout << std::dec << "] " << (err ? "ERROR" : "OK") << "\n";
 }
 
-int main() {
-    const std::string shmName = "/demo_shm";
-    const int payloadSize = 100;
-    const std::size_t capLogger = 16;
-    const std::size_t capAD     = 2;
-    const int iterations = 100;
+int main(/*int argc, char* argv[]*/) {
+    // Name the process based on argument (e.g., ./sub SPEED)
+    //std::string name = (argc > 1) ? argv[1] : "SUB";
+    std::string name = "SPEED_CONTROLLER";
+    
+    const std::string shmName = "/demo_sync_shm";
+    std::size_t totalSize = sizeof(shm_layout) + (FRAME_SIZE * 2);
 
-    std::size_t layoutSize = sizeof(ShmLayout);
-    std::size_t bufSizeLog = sizeof(std::size_t) * capLogger;
-    std::size_t bufSizeAD  = sizeof(std::size_t) * capAD;
-    std::size_t offsetLog = layoutSize;
-    std::size_t offsetAlloc = layoutSize + bufSizeLog + bufSizeAD;
-    std::size_t poolSize = (capLogger + capAD + 8) * payloadSize; 
-    std::size_t totalSize = offsetAlloc + poolSize + 65536;
-
-    std::cout << "[LOGGER] Waiting...\n";
-
+    std::cout << "[" << name << "] Waiting for SHM...\n";
     while (true) {
         try {
             ShmRegion region(shmName, totalSize, ShmRegion::Mode::Attach);
             uint8_t* base = static_cast<uint8_t*>(region.getBase());
-            ShmLayout* layout = reinterpret_cast<ShmLayout*>(base);
-            std::size_t* bufferLog = reinterpret_cast<std::size_t*>(base + offsetLog);
+            shm_layout* layout = reinterpret_cast<shm_layout*>(base);
+            
+            uint8_t* buffer0 = base + sizeof(shm_layout);
+            uint8_t* buffer1 = buffer0 + FRAME_SIZE;
 
-            ShmChunkAllocator allocator(region, payloadSize, offsetAlloc);
-            ChunkQueue queue(&layout->queueLogger, bufferLog, capLogger);
             PulseNotifier notifier;
-            Subscriber sub(allocator, queue, notifier, &layout->header);
+            registerSelf(&layout->header, notifier);
 
-            std::cout << "[LOGGER] Ready.\n";
-
-            bool timing = false;
-            auto start = std::chrono::high_resolution_clock::now();
-            int framesCount = 0;
+            std::cout << "[" << name << "] Ready. Waiting for pulses...\n";
 
             while (true) {
-                void* ptr = sub.receiveBlocking();
-                if (ptr) {
-                    // 1. Start Timer on FIRST frame
-                    if (!timing) {
-                        start = std::chrono::high_resolution_clock::now();
-                        timing = true;
-                        framesCount = 0;
-                    }
-                    verifyAndPrint(ptr, payloadSize);
-                    framesCount++;
-                    // 2. Check for LAST frame to end benchmark
-                    // We peek at the Frame ID inside the pointer
-                    uint32_t* header = static_cast<uint32_t*>(ptr);
-                    uint32_t currentId = header[0];
+                // 1. Wait for Signal from Publisher
+                notifier.wait(); 
 
-                    if (currentId >= iterations - 1) {
-                        auto end = std::chrono::high_resolution_clock::now();
-                        std::chrono::duration<double> diff = end - start;
-                        double seconds = diff.count();
-                        
-                        // Prevent division by zero if it was instant
-                        if (seconds < 0.000001) seconds = 0.000001;
+                // 2. Find which buffer has the new data
+                int idx = layout->currentBufferIdx.load(std::memory_order_acquire);
+                uint8_t* data = (idx == 0) ? buffer0 : buffer1;
+                uint32_t* header = reinterpret_cast<uint32_t*>(data);
 
-                        double totalMB = (double)(framesCount * payloadSize) / (1024.0 * 1024.0);
-                        double bandwidth = totalMB / seconds;
-                        double msgsPerSec = framesCount / seconds;
+                // 3. Simulate Control Logic Processing (Speed/Steering)
+                // We sleep 10ms to simulate heavy math.
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-                        std::cout << "\n[LOGGER RESULT] Finished!\n";
-                        std::cout << "------------------------------------------\n";
-                        std::cout << " Time:      " << seconds << " s\n";
-                        std::cout << " Bandwidth: " << bandwidth << " MB/s\n";
-                        std::cout << " Speed:     " << msgsPerSec << " Frames/sec\n";
-                        std::cout << "------------------------------------------\n";
-                        
-                        timing = false; // Reset for next run
-                    }
-                    sub.release(ptr);
-                }
+                // 4. Print verification every 50 frames (1 second)
+                /*if (header[0] % 50 == 0) {
+                    
+                }*/
+                printAndVerify(name, data);
+
+                // 5. Acknowledge Completion
+                // Increment 'finishedCount' so Publisher knows we are done
+                layout->finishedCount.fetch_add(1, std::memory_order_release);
             }
-        } catch (...) { std::this_thread::sleep_for(std::chrono::seconds(1)); }
+
+        } catch (...) {
+            // If SHM doesn't exist yet, retry every second
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
     }
 }

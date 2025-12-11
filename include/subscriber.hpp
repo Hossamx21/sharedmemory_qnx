@@ -7,7 +7,6 @@
 class Subscriber {
 public:
     Subscriber(ShmChunkAllocator& allocator,
-               ChunkQueue& queue,
                PulseNotifier& notifier,
                RegionHeader* hdr);
         
@@ -28,7 +27,6 @@ public:
 
 private:
     ShmChunkAllocator& allocator_;
-    ChunkQueue& queue_;
     PulseNotifier& notifier_;
     RegionHeader* hdr_;
 };

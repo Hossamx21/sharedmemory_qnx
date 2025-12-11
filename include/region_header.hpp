@@ -23,7 +23,7 @@ struct RegionHeader {
     std::atomic<uint32_t> latest_idx{0};*/
 
     // --- Add subscriber table ---
-    static constexpr uint32_t MAX_SUBSCRIBERS = 8;
+    static constexpr uint32_t MAX_SUBSCRIBERS = 2;
 
     struct SubscriberInfo {
         std::atomic<int32_t> pid{0};

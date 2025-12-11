@@ -14,8 +14,6 @@ public:
 
     ~Publisher();
 
-    // New method to add multiple queues (AD, Logger, etc.)
-    void addQueue(ChunkQueue* queue);
 
     void publish(const void* data, std::size_t len);
 
@@ -25,9 +23,6 @@ private:
     ShmChunkAllocator& allocator_;
     RegionHeader* hdr_;
     
-    // UPDATE: We now store a LIST of queues, not just one reference
-    std::vector<ChunkQueue*> queues_;
-
     // Cache for Connection IDs
     std::vector<int> coids_;
 };

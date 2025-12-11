@@ -541,7 +541,6 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: D:/QNX/qnx_shm_/src/receiv
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_callback.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_source.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_state.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_token.h \
@@ -748,7 +747,6 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: D:/QNX/qnx_shm_/src/receiv
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cmath \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/compare \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/concepts \
-  C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/condition_variable \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cstdarg \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cstddef \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/cstdint \
@@ -866,14 +864,10 @@ CMakeFiles/shm_receiver_ad.dir/src/receiver_ad.cpp.o: D:/QNX/qnx_shm_/src/receiv
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/x86_64/smpxchg.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/xwcc.h \
   C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/yvals.h \
-  D:/QNX/qnx_shm_/include/chunk_header.hpp \
-  D:/QNX/qnx_shm_/include/chunk_queue.hpp \
   D:/QNX/qnx_shm_/include/pulse_notifier.hpp \
   D:/QNX/qnx_shm_/include/region_header.hpp \
-  D:/QNX/qnx_shm_/include/shm_chunk_allocator.hpp \
   D:/QNX/qnx_shm_/include/shm_layout.hpp \
-  D:/QNX/qnx_shm_/include/shm_region.hpp \
-  D:/QNX/qnx_shm_/include/subscriber.hpp
+  D:/QNX/qnx_shm_/include/shm_region.hpp
 
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__bit/bit_log2.h:
@@ -1970,8 +1964,6 @@ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/extended_graphem
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__fwd/ios.h:
 
-C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/condition_variable:
-
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__format/format_arg.h:
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__functional/is_transparent.h:
@@ -2234,10 +2226,6 @@ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/atomic_uniqu
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/intrusive_list_view.h:
 
-C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/is_copy_constructible.h:
-
-C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_callback.h:
-
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_source.h:
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__stop_token/stop_state.h:
@@ -2355,6 +2343,8 @@ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/is_converti
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/sys/target_nto.h:
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/is_copy_assignable.h:
+
+C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/is_copy_constructible.h:
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/c++/v1/__type_traits/is_default_constructible.h:
 
@@ -2610,14 +2600,6 @@ C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/xwcc.h:
 
 C:/Users/Garraio/qnx8sdp/target/qnx/usr/include/yvals.h:
 
-D:/QNX/qnx_shm_/include/chunk_header.hpp:
-
-D:/QNX/qnx_shm_/include/chunk_queue.hpp:
-
 D:/QNX/qnx_shm_/include/region_header.hpp:
 
-D:/QNX/qnx_shm_/include/shm_chunk_allocator.hpp:
-
 D:/QNX/qnx_shm_/include/shm_region.hpp:
-
-D:/QNX/qnx_shm_/include/subscriber.hpp:
